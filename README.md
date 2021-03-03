@@ -3,13 +3,13 @@
 
 The files in this repository were used to configure the network depicted below.
 
-(Images/Topology_Diagram.png)
+![Topology Diagram](Images/Topology_Diagram.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
-  - (Playbooks/elk_playbook.yml)
-  - (Playbooks/filebeat_playbook.yml)
-  - (Playbooks/Metricbeat_playbook.yml)
+  - [elk_playbook.yml](Playbooks/elk_playbook.yml)
+  - [filebeat_playbook.yml](Playbooks/filebeat_playbook.yml)
+  - [Metricbeat_playbook.yml](Playbooks/Metricbeat_playbook.yml)
 
 This document contains the following details:
 - Description of the Topologu
@@ -70,7 +70,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-(Images/docker_ps_output.png)
+![docker ps output](Images/docker_ps_output.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
