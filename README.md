@@ -25,8 +25,12 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly available, in addition to restricting inbound access to the network.
+- Load balancing offers security by helping during a DDoS attack so that the server can handle more traffic by distributing it between multiple servers.
+- The advantage of the jump box VM is that it always us to have an ansible container that can quickly deploy duplicate setups to multiple VMS throught the use of playbooks.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the log files and system metrics.
+- Filebeat is used to monitor log files and collect log events.
+- Metricbeat is used to collect system metrics from the OS and other services on the machine.
 
 The configuration details of each machine may be found below.
 
@@ -46,6 +50,7 @@ Only the Jump-Box-Provisioner machine can accept connections from the Internet. 
 - 73.137.47.155
 
 Machines within the network can only be accessed by each other.
+- The jump box VM was allowed to access the Elk VM, its IP was 10.0.0.5
 
 A summary of the access policies in place can be found in the table below.
 
@@ -60,6 +65,7 @@ A summary of the access policies in place can be found in the table below.
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it allowed multiple duplicate VMs to be setup.
+- The main advantage of using ansible allowed the configuration of multiple machines to be exact duplicates.
 
 The playbook implements the following tasks:
 - Install docker.io
@@ -93,3 +99,10 @@ SSH into the control node and follow the steps below:
 - Copy the playbook file to the Ansible machine.
 - Update the configuration file to include ELK-SERVER's IP
 - Run the playbook, and navigate to ELK-SERVER's public IP to check that the installation worked as expected.
+
+- _Which file is the playbook? Where do you copy it?_
+  - The Playbook files are YAML files that can be found here in the Ansible Directory. These were on the jump box VM within the ansible container.
+- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
+  - Ansible has a Hosts file that can specify individual IPs or create IP groups under a name. If I wanted to install to a specific set of VMs I would create a group in the hosts file and list out their IPs, then I would specify that group name in the playbook.
+- _Which URL do you navigate to in order to check that the ELK server is running?
+  - To verify that the ELK vm is running, I navigate to its http://[public IP]:5601/app/kibana/
