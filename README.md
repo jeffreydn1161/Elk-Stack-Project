@@ -3,13 +3,13 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![Topology Diagram](Images/Topology_Diagram.png)
+![Topology Diagram](Diagrams/Topology_Diagram.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
-  - [elk_playbook.yml](Playbooks/elk_playbook.yml)
-  - [filebeat_playbook.yml](Playbooks/filebeat_playbook.yml)
-  - [Metricbeat_playbook.yml](Playbooks/Metricbeat_playbook.yml)
+  - [elk_playbook.yml](Ansible/elk_playbook.yml)
+  - [filebeat_playbook.yml](Ansible/filebeat_playbook.yml)
+  - [Metricbeat_playbook.yml](Ansible/Metricbeat_playbook.yml)
 
 This document contains the following details:
 - Description of the Topologu
@@ -76,7 +76,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![docker ps output](Images/docker_ps_output.png)
+![docker ps output](Diagrams/docker_ps_output.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -100,6 +100,7 @@ SSH into the control node and follow the steps below:
 - Update the configuration file to include ELK-SERVER's IP
 - Run the playbook, and navigate to ELK-SERVER's public IP to check that the installation worked as expected.
 
+### Questions
 - _Which file is the playbook? Where do you copy it?_
   - The Playbook files are YAML files that can be found here in the Ansible Directory. These were on the jump box VM within the ansible container.
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
